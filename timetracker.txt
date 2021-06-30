@@ -6,3 +6,6 @@ started:  June 29
 10pm - 11pm (Brainstorming, checkout API endpoints on Postman)
 11pm - 12am (Figure out what to build)
 12am - 2am (Breakdown the task on Trello board)
+7am - 9am (Set up project with linter's check)
+9am - 11am (Pushed LandingPage frontend design)
+11am - 

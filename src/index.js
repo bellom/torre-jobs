@@ -9,6 +9,7 @@ import {
   Route,
 } from 'react-router-dom'
 import LandingPage from './components/LandingPage';
+import HomePage from './containers/HomePage';
 // import rootReducer from './reducers';
 
 
@@ -19,6 +20,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route path="/" exact component={LandingPage} />
+        <Route path="/homepage" exact component={HomePage} />
       </Switch>
     </Router>
   </Provider>,
