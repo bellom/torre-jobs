@@ -1,2 +1,8 @@
 Hourly track of my activities.
 
+started:  June 29
+
+9pm - 10pm (Reading and understanding the challenge)
+10pm - 11pm (Brainstorming, checkout API endpoints on Postman)
+11pm - 12am (Figure out what to build)
+12am - 2am (Breakdown the task on Trello board)
