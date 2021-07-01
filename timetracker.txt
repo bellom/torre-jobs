@@ -1,11 +1,16 @@
 Hourly track of my activities.
 
-started:  June 29
-
+started:  June 29 - June 30th (Day 1)
 9pm - 10pm (Reading and understanding the challenge)
 10pm - 11pm (Brainstorming, checkout API endpoints on Postman)
 11pm - 12am (Figure out what to build)
 12am - 2am (Breakdown the task on Trello board)
 7am - 9am (Set up project with linter's check)
 9am - 11am (Pushed LandingPage frontend design)
-11am - 
+11am - 2pm (LandingPage logic)
+2pm - 4pm (get user endpoint return CORS error)
+4pm - 6pm (created backend to fix CORS error)
+9pm - 10pm (continue with backend server)
+10pm - 12am (HomePage frontend design)
+
+June - 1st - June 2nd (Day 2)

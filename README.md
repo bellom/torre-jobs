@@ -34,7 +34,9 @@ git clone https://github.com/bellom/torre-jobs
 
 2. Run `npm install`
 
-3. Run `npm start`
+3. cd into server dir run `npm install`
+
+4. back to root folder run `npm start`
 
 ## Contact
 
