@@ -1,6 +1,7 @@
 import { useEffect, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getJobDetails, getEmployees } from '../utils/request'
+import '../stylesheets/JobPage.css';
 
 const JobPage = () => {
   const { jobId } = useParams();
@@ -25,18 +26,44 @@ const JobPage = () => {
     fetchJob()
   }, [fetchJob])
 
+  const image = jobDetails?.organizations?.[0].picture
+  const headline = jobDetails?.serpTags?.title
+  const type = jobDetails?.serpTags?.employmentType?.[0]
+  const companyName = jobDetails?.organizations?.[0].name
+  const currency = jobDetails?.serpTags?.baseSalary?.currency
+  const minValue = jobDetails?.serpTags?.baseSalary?.value.minValue
+  const maxValue = jobDetails?.serpTags?.baseSalary?.value.maxValue
+  const unitText = jobDetails?.serpTags?.baseSalary?.value.unitText.toLowerCase()
 
   return (
-    <>
-      <h1>Job Details</h1>
-      {JSON.stringify(jobDetails, null, 2)}
-      <h1>List of Company Employees at the job</h1>
-      <ul>
-        {employees.map(e => (<li key={e}>
-          {JSON.stringify(e, null, 2)};
-        </li>))}
-      </ul>
-    </>
+    <div className="job-page">
+      <div className="job-details">
+        <div>
+          <img src={image} alt="" className="image" />
+          <h4>{headline}</h4>
+        </div>
+        <div><span>{type}</span></div>
+        <div><span>Organization(s) name(s)</span>{companyName}</div>
+        <div>
+          <span>Monetary compensation </span>
+          <span>{currency} {minValue}-{maxValue}/{unitText}</span>
+        </div>
+      </div>
+
+      <div className="employee-cards">
+        {employees.map(e => (
+        <div key={e} className="employee-card">
+          <span className="work">You’d be working with:</span>
+          <br />
+          <div className="img-wrapper">
+            <img src={e.picture} alt="" className="em-image" />
+          </div>
+          <div><span className="name-job">{e.name}</span></div>
+          <div><span className="headline-job">{e.professionalHeadline}</span></div>
+        </div>
+        ))}
+      </div>
+    </div>
   )
 }
 

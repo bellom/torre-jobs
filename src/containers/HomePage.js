@@ -1,7 +1,6 @@
 import { useEffect, useCallback, useState } from 'react'
 import { useParams, Link } from 'react-router-dom';
 import { getUser, getRelevantJobs } from '../utils/request';
-// import Header from '../components/Header'
 import '../stylesheets/HomePage.css';
 
 const HomePage = () => {

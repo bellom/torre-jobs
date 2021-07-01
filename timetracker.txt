@@ -14,3 +14,10 @@ started:  June 29 - June 30th (Day 1)
 10pm - 12am (HomePage frontend design)
 
 June - 1st - June 2nd (Day 2)
+7am - 9am (Round up homepage design)
+9am - 11am (Job Details page)
+
+
+todo:::
+loading component
+error page
