@@ -40,12 +40,12 @@ const JobPage = () => {
       <div className="job-details">
         <div>
           <img src={image} alt="" className="image" />
-          <h4>{headline}</h4>
+          <h5>{headline}</h5>
         </div>
         <div><span>{type}</span></div>
-        <div><span>Organization(s) name(s)</span>{companyName}</div>
+        <div><span className="company-name">Organization(s) name(s):</span><br />{companyName}</div>
         <div>
-          <span>Monetary compensation </span>
+          <span className="salary">Monetary compensation:</span><br />
           <span>{currency} {minValue}-{maxValue}/{unitText}</span>
         </div>
       </div>
