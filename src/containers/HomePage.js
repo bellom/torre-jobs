@@ -35,7 +35,7 @@ const HomePage = () => {
         <span className="span">List of jobs relevant to your profile</span>
       </div>
       <div className="cards">
-        {/* <div className="user-cards">
+        <div className="user-cards">
           <div className="img-wrapper user-img">
             <img src={image} alt="" class='image' />
           </div>
@@ -44,22 +44,19 @@ const HomePage = () => {
             <div className="name">{name}</div>
             <div className="country">{country}</div>
           </div>
-        </div> */}
+        </div>
 
         <div className="job-cards">
           {jobs.map(e => (
               <div key={e.id} className="job-card">
                 <Link to={`/job/${e.id}`}>
                   <div>
-                    <span>Job Title:</span>
                     <span>{e.objective}</span>
                   </div>
-                  <div>
-                    <span>Job Type:</span>
+                  <div className="type">
                     <span>{e.type}</span>
                   </div>
                   <div>
-                    <span>Company Name:</span>
                     <span>{e.organizations[0].name}</span>
                   </div>
                 </Link>

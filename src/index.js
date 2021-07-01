@@ -8,11 +8,9 @@ import {
   Switch,
   Route,
 } from 'react-router-dom'
-import LandingPage from './components/LandingPage';
+import LandingPage from './containers/LandingPage';
 import HomePage from './containers/HomePage';
 import JobPage from './containers/JobPage';
-// import ProfilePage from './containers/ProfilePage';
-// import rootReducer from './reducers';
 
 
 const store = createStore(applyMiddleware(thunk));
@@ -23,7 +21,6 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/user/:username" exact component={HomePage} />
-        {/* <Route path="/profile/:username" exact component={ProfilePage} /> */}
         <Route path="/job/:jobId" exact component={JobPage} />
       </Switch>
     </Router>

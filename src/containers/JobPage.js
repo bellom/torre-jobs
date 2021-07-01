@@ -53,13 +53,12 @@ const JobPage = () => {
       <div className="employee-cards">
         {employees.map(e => (
         <div key={e} className="employee-card">
-          <span className="work">You’d be working with:</span>
-          <br />
+          <span className="work">Team member</span>
           <div className="img-wrapper">
             <img src={e.picture} alt="" className="em-image" />
           </div>
-          <div><span className="name-job">{e.name}</span></div>
-          <div><span className="headline-job">{e.professionalHeadline}</span></div>
+          <div className="name-job"><span>{e.name}</span></div>
+          <div className="headline-job"><span>{e.professionalHeadline}</span></div>
         </div>
         ))}
       </div>

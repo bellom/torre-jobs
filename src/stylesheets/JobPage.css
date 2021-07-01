@@ -37,14 +37,15 @@ h5 {
 
 .employee-cards {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  overflow-x: scroll;
 }
 
 .employee-card {
   border-radius: 10%;
   background: #27292d;
-  height: 250px;
-  min-width: 200px;
+  height: 200px;
+  min-width: 210px;
   margin: 2px 2px;
   text-align: center;
   padding: 0 4px;
@@ -56,9 +57,9 @@ h5 {
 
 .name-job {
   font-size: small;
+  margin-top: -30px;
 }
 
 .work {
   font-size: 10px;
 }
-

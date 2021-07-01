@@ -14,7 +14,7 @@ const LandingPage = () => {
 
   return (
     <div className="App">
-      <h3>Sign in with your Torre username</h3>
+      <h4>Sign in with your Torre username</h4>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

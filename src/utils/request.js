@@ -8,7 +8,7 @@ const adapter = axios.create({
 // const userUrl = 'https://torre.bio/api/bios/';
 const relevantJobsUrl = 'https://search.torre.co/opportunities/_search/?size=10&aggregate=false&offset=0';
 const jobDetailsUrl = 'https://torre.co/api/opportunities/'
-const employeesUrl = 'https://search.torre.co/people/_search/?offset=0&size=5&aggregate=false'
+const employeesUrl = 'https://search.torre.co/people/_search/?offset=0&size=10&aggregate=false'
 
 export const getUser = async (username) => {
   const response = await adapter.get(`/user/${username}`);
