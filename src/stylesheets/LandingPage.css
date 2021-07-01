@@ -26,7 +26,6 @@ h4 {
 }
 
 .btn-login {
-  background-color: #cddc39;
   border-radius: 18px;
   border: 3px solid #27292d;
   color: #27292d;
@@ -44,6 +43,7 @@ h4 {
   width: 256px;
 }
 
-input:focus{
+input:focus,
+.btn-login {
   background-color: #cddc39;
 }
