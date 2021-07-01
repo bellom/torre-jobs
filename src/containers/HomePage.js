@@ -35,8 +35,8 @@ const HomePage = () => {
         <span className="span">List of jobs relevant to your profile</span>
       </div>
       <div className="cards">
-        <div className="user-cards">
-          <div className="img-wrapper">
+        {/* <div className="user-cards">
+          <div className="img-wrapper user-img">
             <img src={image} alt="" class='image' />
           </div>
           <div className='user-info'>
@@ -44,7 +44,7 @@ const HomePage = () => {
             <div className="name">{name}</div>
             <div className="country">{country}</div>
           </div>
-        </div>
+        </div> */}
 
         <div className="job-cards">
           {jobs.map(e => (
