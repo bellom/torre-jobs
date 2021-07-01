@@ -2,10 +2,30 @@ img {
 	max-width: 100%;
 }
 
-.container {
+#root {
+	background-image: url("https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80");
+	height: 100vh;
+	background-repeat:no-repeat;
+  background-size: cover;
+	justify-content: center;
+}
+
+.titles {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 20px;
+	color: white;
+}
+
+.span {
+	margin-right: 407px;
+}
+
+.cards {
 	display: flex;
   height: 100%;
 	margin: 3rem auto;
+	margin-top: -0px;
   justify-content:space-between;
 	width: 100%;
 }
@@ -14,7 +34,7 @@ img {
 .job-cards {
 	background: #27292d;
 	border-radius: 10px;
-	display: flex;
+	/* display: flex; */
 	justify-content: center;
 	padding: 1rem;
 }
@@ -46,8 +66,13 @@ img {
 }
 
 .job-cards {
-  height: 35vh;
+  height: 94vh;
   width: 60%;
-  box-shadow: 5px 10px 18px #cddc39;
+	overflow: auto;
 }
 
+.job-card {
+	border: 1px solid grey;
+	min-height: 25vh;
+	box-shadow: 5px 10px 18px #cddc39;
+}
