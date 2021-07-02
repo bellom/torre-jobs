@@ -11,6 +11,12 @@ img {
 	justify-content: center;
 }
 
+h1 {
+	font-size: small;
+	text-align: center;
+	margin-top: 250px;
+}
+
 .titles {
 	display: flex;
 	justify-content: space-between;
@@ -19,7 +25,8 @@ img {
 
 .name,
 .titles,
-a:hover {
+a:hover,
+h1 {
 	color: #cddc39;
 }
 

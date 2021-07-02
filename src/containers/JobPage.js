@@ -18,18 +18,6 @@ const JobPage = () => {
   const [jobDetailsError, setJobDetailsError] = useState(null);
   const [employeeError, setEmployeeError] = useState(null);
 
-  const fetchJob = useCallback(async () => {
-    try {
-      const job = await getJobDetails(jobId);
-      const companyName = job?.organizations?.[0].name
-      setJobDetails(job);
-      fetchEmployees(companyName);
-    } catch (error) {
-      setJobDetailsError(true)
-    }
-  }, [jobId])
-
-
   const fetchEmployees = useCallback(async (companyName) => {
     try {
       const employees = await getEmployees(companyName);
@@ -40,6 +28,16 @@ const JobPage = () => {
     }
   }, [])
 
+  const fetchJob = useCallback(async () => {
+    try {
+      const job = await getJobDetails(jobId);
+      const companyName = job?.organizations?.[0].name
+      setJobDetails(job);
+      fetchEmployees(companyName);
+    } catch (error) {
+      setJobDetailsError(true)
+    }
+  }, [jobId, fetchEmployees])
 
   useEffect(() => {
     fetchJob()
@@ -57,7 +55,7 @@ const JobPage = () => {
   return (
     <div className="job-page">
       <div className="job-details">
-        { !jobDetails && !jobDetailsError && <ClipLoader loading={!jobDetails && !jobDetailsError} css={override} size={150}/> }
+        { (!jobDetails && !jobDetailsError) && <ClipLoader loading={!jobDetails && !jobDetailsError} css={override} size={150}/> }
         { jobDetailsError && <h1>There was an error retrieving job details.</h1> }
         { jobDetails && 
           <>
@@ -76,8 +74,8 @@ const JobPage = () => {
       </div>
 
       <div className="employee-cards">
-        { !employees && <ClipLoader loading={!employees} css={override} size={150}/> }
-        { employeeError && <h1>There was an error retrieving job list.</h1> }
+        { (!employees && !employeeError) && <ClipLoader loading={!employees} css={override} size={150}/> }
+        { employeeError && <h1>There was an error retrieving .</h1> }
         {employees?.map(e => (
         <div key={e} className="employee-card">
           <span className="work">Team member</span>

@@ -25,7 +25,6 @@ const HomePage = () => {
       setUser(userDetails)
     } catch (error) {
       setUserError(true)
-      console.log("working!!")
     }
   }, [username])
 
@@ -35,7 +34,6 @@ const HomePage = () => {
       setJobs(jobs.results);
     } catch (error) {
       setJobsError(true)
-      console.log("working!!")
     }
   }, [username])
 
@@ -59,35 +57,35 @@ const HomePage = () => {
       </div>
       <div className="cards">
         <div className="user-cards">
-          { !user && !userError && <ClipLoader loading={!user && !userError} css={override} size={150}/> }
+          { (!user && !userError) && <ClipLoader loading = { !user && !userError } css = {  override } size = { 150 } /> }
           { userError && <h1>There was an error retrieving user profile.</h1> }
           { user && <><div className="img-wrapper user-img">
-            <img src={image} alt="" className='image' />
+            <img src={ image } alt="" className='image' />
           </div>
           <div className='user-info'>
-            <div className="headline">{headline}</div>
-            <div className="name">{name}</div>
-            <div className="country">{country}</div>
+            <div className="headline">{ headline }</div>
+            <div className="name">{ name }</div>
+            <div className="country">{ country }</div>
           </div></>}
         </div>
 
         <div className="job-cards">
-          { !jobs && <ClipLoader loading={!jobs} css={override} size={150}/> }
-          { jobsError && <h1>There was an error retrieving job list.</h1> }
+          { (!jobs && !jobsError) && <ClipLoader loading={ !jobs && !jobsError } css={ override } size={ 150 } /> }
+          { jobsError && <h1>Oops! there was an error retrieving job list due to user not found.</h1> }
           { jobs?.map(e => (
-              <div key={e.id} className="job-card">
-                <Link to={`/job/${e.id}`}>
-                  <div>
-                    <span>{e.objective}</span>
-                  </div>
-                  <div className="type">
-                    <span>{e.type}</span>
-                  </div>
-                  <div>
-                    <span>{e.organizations[0].name}</span>
-                  </div>
-                </Link>
-              </div>
+            <div key={ e.id } className="job-card">
+              <Link to={`/job/${e.id}`}>
+                <div>
+                  <span>{ e.objective }</span>
+                </div>
+                <div className="type">
+                  <span>{ e.type }</span>
+                </div>
+                <div>
+                  <span>{ e.organizations[0].name }</span>
+                </div>
+              </Link>
+            </div>
           ))}
         </div>
       </div>
