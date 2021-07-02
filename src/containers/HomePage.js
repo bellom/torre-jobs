@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useState } from 'react'
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { getUser, getRelevantJobs } from '../utils/request';
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -18,6 +18,8 @@ const HomePage = () => {
   const [jobs, setJobs] = useState(null);
   const [userError, setUserError] = useState(null);
   const [jobsError, setJobsError] = useState(null);
+
+  const history = useHistory();
 
   const fetchUser = useCallback(async () => {
     try {
@@ -69,13 +71,22 @@ const HomePage = () => {
                 <div className="name">{ name }</div>
                 <div className="country">{ country }</div>
               </div>
+              <br />
+              <br />
+              <button onClick={() => history.goBack()}>Logout</button>
             </>
           }
         </div>
 
         <div className="job-cards">
           { (!jobs && !jobsError) && <ClipLoader loading = { !jobs && !jobsError } css = { override } size = { 150 } /> }
-          { jobsError && <h1>Oops! there was an error retrieving job list due to user not found.</h1> }
+          { jobsError && 
+            <h1>
+              Oops! there was an error retrieving job list due to user not found.
+              <br />
+              <br />
+              <Link to="/" className="link-login">Login with another username</Link>
+            </h1> }
           { jobs?.map(e => (
             <div key={ e.id } className="job-card">
               <Link to={ `/job/${e.id}` }>

@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getJobDetails, getEmployees } from '../utils/request'
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -11,13 +11,16 @@ const override = css`
   border-color: #cddc39;
 `;
 
+
 const JobPage = () => {
   const { jobId } = useParams();
   const [jobDetails, setJobDetails] = useState(null)
   const [employees, setEmployees] = useState(null)
   const [jobDetailsError, setJobDetailsError] = useState(null);
   const [employeeError, setEmployeeError] = useState(null);
-
+  
+  const history = useHistory();
+  
   const fetchEmployees = useCallback(async (companyName) => {
     try {
       const employees = await getEmployees(companyName);
@@ -69,6 +72,9 @@ const JobPage = () => {
               <span className="salary">Monetary compensation:</span><br />
               <span>{ currency } { minValue }-{ maxValue }/{ unitText }</span>
             </div>
+            <br />
+            <br />
+            <button onClick={() => history.goBack()}>Go Back</button>
           </>
         }
       </div>

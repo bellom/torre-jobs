@@ -110,3 +110,7 @@ a {
 	text-decoration: none;
 	color:darkgray;
 }
+
+.link-login {
+	justify-content: space-between;
+}
