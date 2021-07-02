@@ -19,15 +19,13 @@ const HomePage = () => {
   const [userError, setUserError] = useState(null);
   const [jobsError, setJobsError] = useState(null);
 
-
   const fetchUser = useCallback(async () => {
     try {
       const userDetails = await getUser(username)
       setUser(userDetails)
-      console.log({userDetails})
     } catch (error) {
       setUserError(true)
-      console.log("wokring!!")
+      console.log("working!!")
     }
   }, [username])
 
@@ -37,6 +35,7 @@ const HomePage = () => {
       setJobs(jobs.results);
     } catch (error) {
       setJobsError(true)
+      console.log("working!!")
     }
   }, [username])
 
@@ -63,7 +62,7 @@ const HomePage = () => {
           { !user && !userError && <ClipLoader loading={!user && !userError} css={override} size={150}/> }
           { userError && <h1>There was an error retrieving user profile.</h1> }
           { user && <><div className="img-wrapper user-img">
-            <img src={image} alt="" class='image' />
+            <img src={image} alt="" className='image' />
           </div>
           <div className='user-info'>
             <div className="headline">{headline}</div>
@@ -72,7 +71,7 @@ const HomePage = () => {
           </div></>}
         </div>
 
-        {/* <div className="job-cards">
+        <div className="job-cards">
           { !jobs && <ClipLoader loading={!jobs} css={override} size={150}/> }
           { jobsError && <h1>There was an error retrieving job list.</h1> }
           { jobs?.map(e => (
@@ -90,7 +89,7 @@ const HomePage = () => {
                 </Link>
               </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </div>
   )

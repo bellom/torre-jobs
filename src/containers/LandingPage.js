@@ -22,6 +22,7 @@ const LandingPage = () => {
           placeholder="Username"
           onChange={event => setItemInput(event.target.value)}
           value={itemInput}
+          required
         />
         <button type="submit" className="btn-login">Log In</button>
       </form>

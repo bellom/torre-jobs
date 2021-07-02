@@ -1,26 +1,45 @@
 import { useEffect, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getJobDetails, getEmployees } from '../utils/request'
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
 import '../stylesheets/JobPage.css';
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: #cddc39;
+`;
 
 const JobPage = () => {
   const { jobId } = useParams();
-  const [jobDetails, setJobDetails] = useState({})
-  const [employees, setEmployees] = useState([])
+  const [jobDetails, setJobDetails] = useState(null)
+  const [employees, setEmployees] = useState(null)
+  const [jobDetailsError, setJobDetailsError] = useState(null);
+  const [employeeError, setEmployeeError] = useState(null);
 
   const fetchJob = useCallback(async () => {
-    const job = await getJobDetails(jobId);
-    const companyName = job?.organizations?.[0].name
-    console.log(job);
-    setJobDetails(job);
-    fetchEmployees(companyName);
+    try {
+      const job = await getJobDetails(jobId);
+      const companyName = job?.organizations?.[0].name
+      setJobDetails(job);
+      fetchEmployees(companyName);
+    } catch (error) {
+      setJobDetailsError(true)
+    }
   }, [jobId])
 
+
   const fetchEmployees = useCallback(async (companyName) => {
-    const employees = await getEmployees(companyName);
-    console.log(employees);
-    setEmployees(employees.results);
+    try {
+      const employees = await getEmployees(companyName);
+      console.log(employees);
+      setEmployees(employees.results);
+    } catch (error) {
+      setEmployeeError(true)
+    }
   }, [])
+
 
   useEffect(() => {
     fetchJob()
@@ -38,20 +57,28 @@ const JobPage = () => {
   return (
     <div className="job-page">
       <div className="job-details">
-        <div>
-          <img src={image} alt="" className="image" />
-          <h5>{headline}</h5>
-        </div>
-        <div><span>{type}</span></div>
-        <div><span className="company-name">Organization(s) name(s):</span><br />{companyName}</div>
-        <div>
-          <span className="salary">Monetary compensation:</span><br />
-          <span>{currency} {minValue}-{maxValue}/{unitText}</span>
-        </div>
+        { !jobDetails && !jobDetailsError && <ClipLoader loading={!jobDetails && !jobDetailsError} css={override} size={150}/> }
+        { jobDetailsError && <h1>There was an error retrieving job details.</h1> }
+        { jobDetails && 
+          <>
+            <div>
+              <img src={image} alt="" className="image" />
+              <h5>{headline}</h5>
+            </div>
+            <div><span>{type}</span></div>
+            <div><span className="company-name">Organization(s) name(s):</span><br />{companyName}</div>
+            <div>
+              <span className="salary">Monetary compensation:</span><br />
+              <span>{currency} {minValue}-{maxValue}/{unitText}</span>
+            </div>
+          </>
+        }
       </div>
 
       <div className="employee-cards">
-        {employees.map(e => (
+        { !employees && <ClipLoader loading={!employees} css={override} size={150}/> }
+        { employeeError && <h1>There was an error retrieving job list.</h1> }
+        {employees?.map(e => (
         <div key={e} className="employee-card">
           <span className="work">Team member</span>
           <div className="img-wrapper">
