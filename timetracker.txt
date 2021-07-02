@@ -1,6 +1,6 @@
 Hourly track of my activities.
 
-started:  June 29 - June 30th (Day 1)
+started:  June 29 - June 30th
 9pm - 10pm (Reading and understanding the challenge)
 10pm - 11pm (Brainstorming, checkout API endpoints on Postman)
 11pm - 12am (Figure out what to build)
@@ -13,13 +13,17 @@ started:  June 29 - June 30th (Day 1)
 9pm - 10pm (continue with backend server)
 10pm - 12am (HomePage frontend design)
 
-June - 1st - June 2nd (Day 2)
+June - 1st - June 2nd
 7am - 9am (Round up homepage design)
 9am - 11am (Job Details page)
 3am - 6pm (Round up job Details page)
 9pm - 12am (Worked on pixel perfect and refactoring)
 8am - 9am (working on loading component)
-10am - 11am Heroku deployment 
-11am - 12pm switch to try and catch to fix loading component issue
-12pm - 1pm Implemented loading component to the rest of the pages.
-1pm - 2pm Implementing Error response
+10am - 11am (Heroku deployment)
+11am - 12pm (switch to try and catch to fix loading component issue)
+12pm - 1pm (Implemented loading component to the rest of the pages.)
+1pm - 2pm (Implementing error message)
+2pm - 3pm (Implemented best code practice)
+3pm - 4pm (Implemented page navigation)
+
+
