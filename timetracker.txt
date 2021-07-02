@@ -17,7 +17,9 @@ June - 1st - June 2nd (Day 2)
 7am - 9am (Round up homepage design)
 9am - 11am (Job Details page)
 3am - 6pm (Round up job Details page)
-9pm - 12 (Worked on pixel perfect and refactoring)
+9pm - 12am (Worked on pixel perfect and refactoring)
+8am - 10am loading component
+10am - ? Heroku deployment
 
 
 todo:::
