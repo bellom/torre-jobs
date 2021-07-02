@@ -20,8 +20,3 @@ June - 1st - June 2nd (Day 2)
 9pm - 12am (Worked on pixel perfect and refactoring)
 8am - 10am loading component
 10am - ? Heroku deployment
-
-
-todo:::
-loading component
-error page
