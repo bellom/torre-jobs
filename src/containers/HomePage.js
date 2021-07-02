@@ -17,15 +17,17 @@ const HomePage = () => {
   const [user, setUser] = useState(null);
   const [jobs, setJobs] = useState(null);
   const [userError, setUserError] = useState(null);
-  const [jobError, setJobError] = useState(null);
+  const [jobsError, setJobsError] = useState(null);
 
 
   const fetchUser = useCallback(async () => {
     try {
       const userDetails = await getUser(username)
       setUser(userDetails)
+      console.log({userDetails})
     } catch (error) {
       setUserError(true)
+      console.log("wokring!!")
     }
   }, [username])
 
@@ -34,7 +36,7 @@ const HomePage = () => {
       const jobs = await getRelevantJobs(username);
       setJobs(jobs.results);
     } catch (error) {
-      setJobError(true)
+      setJobsError(true)
     }
   }, [username])
 
@@ -58,7 +60,9 @@ const HomePage = () => {
       </div>
       <div className="cards">
         <div className="user-cards">
-          { !user ? <ClipLoader loading={!user} css={override} size={150} /> : <><div className="img-wrapper user-img">
+          { !user && !userError && <ClipLoader loading={!user && !userError} css={override} size={150}/> }
+          { userError && <h1>There was an error retrieving user profile.</h1> }
+          { user && <><div className="img-wrapper user-img">
             <img src={image} alt="" class='image' />
           </div>
           <div className='user-info'>
@@ -68,8 +72,10 @@ const HomePage = () => {
           </div></>}
         </div>
 
-        <div className="job-cards">
-          {jobs?.map(e => (
+        {/* <div className="job-cards">
+          { !jobs && <ClipLoader loading={!jobs} css={override} size={150}/> }
+          { jobsError && <h1>There was an error retrieving job list.</h1> }
+          { jobs?.map(e => (
               <div key={e.id} className="job-card">
                 <Link to={`/job/${e.id}`}>
                   <div>
@@ -84,7 +90,7 @@ const HomePage = () => {
                 </Link>
               </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   )
