@@ -18,5 +18,8 @@ June - 1st - June 2nd (Day 2)
 9am - 11am (Job Details page)
 3am - 6pm (Round up job Details page)
 9pm - 12am (Worked on pixel perfect and refactoring)
-8am - 10am loading component
-10am - ? Heroku deployment
+8am - 9am (working on loading component)
+10am - 11am Heroku deployment 
+11am - 12pm switch to try and catch to fix loading component issue
+12pm - 1pm Implemented loading component to the rest of the pages.
+1pm - 2pm Implementing Error response

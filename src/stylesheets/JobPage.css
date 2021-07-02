@@ -37,7 +37,6 @@ h5 {
 
 .employee-cards {
   display: flex;
-  /* justify-content: center; */
   overflow-x: scroll;
 }
 

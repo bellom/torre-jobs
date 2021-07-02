@@ -15,13 +15,14 @@ const LandingPage = () => {
   return (
     <div className="App">
       <h4>Sign in with your Torre username</h4>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={ handleSubmit }>
         <input
           type="text"
           className="input-username"
           placeholder="Username"
           onChange={event => setItemInput(event.target.value)}
-          value={itemInput}
+          value={ itemInput }
+          required
         />
         <button type="submit" className="btn-login">Log In</button>
       </form>

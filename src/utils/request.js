@@ -4,8 +4,6 @@ const adapter = axios.create({
   baseURL: "http://localhost:8080"
 });
 
-
-// const userUrl = 'https://torre.bio/api/bios/';
 const relevantJobsUrl = 'https://search.torre.co/opportunities/_search/?size=10&aggregate=false&offset=0';
 const jobDetailsUrl = 'https://torre.co/api/opportunities/'
 const employeesUrl = 'https://search.torre.co/people/_search/?offset=0&size=10&aggregate=false'
