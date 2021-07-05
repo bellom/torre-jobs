@@ -114,3 +114,57 @@ a {
 .link-login {
 	justify-content: space-between;
 }
+
+button {
+	border-radius: 9px;
+  border: 3px solid #27292d;
+  color: #27292d;
+  min-height: 38px;
+  margin-top: 20px;
+  width: 90px;
+}
+
+@media only screen and (max-width: 476px) {
+	.cards {
+		margin-top: 10px;
+	}
+
+	.user-cards {
+		height: 48vh;	
+	}
+
+  .titles {
+    font-size: 9px;
+  }
+
+	.user-img {
+    padding-top: 40px;
+	}
+
+	.user-info {
+		font-size: x-small;
+		margin-top: 0px;
+	}
+	.image {
+		height: 4rem;
+    width: 4rem;
+    max-width: 50%;
+    border-radius: 50%;
+	}
+
+	button {
+		border-radius: 9px;
+		border: 3px solid #27292d;
+		color: #27292d;
+		font-size: 11px;
+		min-height: 25px;
+		margin-top: 20px;
+		width: 70px;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.user-img {
+		margin-top: 50px;
+	}	
+}
