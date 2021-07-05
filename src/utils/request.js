@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const adapter = axios.create({
-  baseURL: "http://localhost:8080"
+  baseURL: "https://torre-v2-api.herokuapp.com"
 });
 
 const relevantJobsUrl = 'https://search.torre.co/opportunities/_search/?size=10&aggregate=false&offset=0';
