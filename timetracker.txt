@@ -25,5 +25,3 @@ June - 1st - June 2nd
 1pm - 2pm (Implementing error message)
 2pm - 3pm (Implemented best code practice)
 3pm - 4pm (Implemented page navigation)
-
-

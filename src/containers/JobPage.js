@@ -85,7 +85,7 @@ const JobPage = () => {
         { employees?.map(e => (
         <div key={ e } className="employee-card">
           <span className="work">Team member</span>
-          <div className="img-wrapper">
+          <div>
             <img src={ e.picture } alt="employeeProfilePicture" className="em-image" />
           </div>
           <div className="name-job"><span>{ e.name }</span></div>

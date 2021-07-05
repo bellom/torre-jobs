@@ -26,7 +26,6 @@
     "start:client": "react-scripts start",
     "wait-on:server": "wait-on http://localhost:8080/",
     "start": "concurrently  \"npm run start:server\" \"npm run wait-on:server && npm run start:client\"",
-    "heroku-prebuild": "npm install && npm run build && cd server && npm install",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
