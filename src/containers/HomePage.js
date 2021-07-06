@@ -46,10 +46,10 @@ const HomePage = () => {
   }, [fetchUser, fetchJobs])
 
 
-  const image = user?.person?.picture
-  const headline = user?.person?.professionalHeadline
-  const name = user?.person?.name
-  const country = user?.person?.location?.country
+  const image = user?.picture
+  const headline = user?.professionalHeadline
+  const name = user?.name
+  const country = user?.location?.country
 
   return (
     <div className="container">
@@ -59,7 +59,7 @@ const HomePage = () => {
       </div>
       <div className="cards">
         <div className="user-cards">
-          { (!user && !userError) && <ClipLoader loading = { !user && !userError } css = {  override } size = { 150 } /> }
+          { (!user && !userError) && <ClipLoader loading = { !user && !userError } css = {  override } size = { 100 } /> }
           { userError && <h1>There was an error retrieving user profile.</h1> }
           { user && 
             <>
@@ -79,7 +79,7 @@ const HomePage = () => {
         </div>
 
         <div className="job-cards">
-          { (!jobs && !jobsError) && <ClipLoader loading = { !jobs && !jobsError } css = { override } size = { 150 } /> }
+          { (!jobs && !jobsError) && <ClipLoader loading = { !jobs && !jobsError } css = { override } size = { 100 } /> }
           { jobsError && 
             <h1>
               Oops! there was an error retrieving job list due to user not found.

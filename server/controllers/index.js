@@ -10,7 +10,20 @@ const getUser = async (req, res) => {
   try {
     const { username } = req.params;
     const response = await axios.get(`${userUrl}${username}`);
-    return res.send(response.data);
+    const result = response.data
+    .filter(data => {
+      return data.person
+    })
+    // .filter(data => {
+    //   return {
+    //     picture: data.picture,
+    //     professionalHeadline: data.professionalHeadline,
+    //     name: data.name,
+    //     location: data.location.country
+    //   }
+    // })
+    // run a filter on response.data
+    return res.send(result);
   } catch (error) {
     res.status(404).send(error)
   }

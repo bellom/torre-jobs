@@ -10,6 +10,7 @@ const adapter = axios.create({
 
 export const getUser = async (username) => {
   const response = await adapter.get(`/user/${username}`);
+  console.log(response.data)
   return response.data;
 };
 

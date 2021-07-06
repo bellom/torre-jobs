@@ -168,3 +168,44 @@ button {
 		margin-top: 50px;
 	}	
 }
+
+@media only screen and (max-height: 668px) {
+	.job-cards, .user-cards {
+		height: 87vh;
+	}	
+
+	.user-img {
+		height: 30%;
+	}
+
+	.user-info {
+		font-size: 11px;
+		height: 50%;
+	}
+
+	.user-img, 
+	.user-info {
+		margin-top: 20px;
+	}
+
+	.image {
+    height: 4rem;
+    width: 4rem;
+	}
+
+	button {
+		border-radius: 9px;
+		border: 3px solid #27292d;
+		color: #27292d;
+		font-size: 10px;
+		min-height: 31px;
+		margin-bottom: 50px;
+		width: 79px;
+	}
+}
+
+@media only screen and (min-height: 811px) {
+	button {
+		margin-bottom: -30px;
+	}
+}
