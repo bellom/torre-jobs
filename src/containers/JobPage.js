@@ -58,7 +58,7 @@ const JobPage = () => {
   return (
     <div className="job-page">
       <div className="job-details">
-        { (!jobDetails && !jobDetailsError) && <ClipLoader loading = { !jobDetails && !jobDetailsError } css = { override } size = { 150 }/> }
+        { (!jobDetails && !jobDetailsError) && <ClipLoader loading = { !jobDetails && !jobDetailsError } css = { override } size = { 100 }/> }
         { jobDetailsError && <h1>There was an error retrieving job details.</h1> }
         { jobDetails && 
           <>
@@ -80,7 +80,7 @@ const JobPage = () => {
       </div>
 
       <div className="employee-cards">
-        { (!employees && !employeeError) && <ClipLoader loading = { !employees } css = { override } size = { 150 } /> }
+        { (!employees && !employeeError) && <ClipLoader loading = { !employees } css = { override } size = { 100 } /> }
         { employeeError && <h1>There was an error retrieving team members, member not added to company profile</h1> }
         { employees?.map(e => (
         <div key={ e } className="employee-card">
