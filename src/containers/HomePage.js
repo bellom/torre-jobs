@@ -50,7 +50,7 @@ const HomePage = () => {
   const image = user?.picture
   const headline = user?.professionalHeadline
   const name = user?.name
-  const country = user?.location?.country
+  const country = user?.country
 
   return (
     <div className="container">
