@@ -63,41 +63,10 @@ h5 {
   font-size: 10px;
 }
 
-.no-employee{
+.no-employee {
   color: #cddc39;
   font-size: 13px;
-	text-align: center;
-  padding: 40px 400px;
-}
-
-@media only screen and (max-width: 320px) {
-	.no-employee {
-    font-size: 10px;
-    padding: 40px 0px;
-	}	
-}
-
-@media only screen and (min-width: 375px) {
-	.no-employee {
-    padding: 40px 0px;
-	}	
-}
-
-@media only screen and (min-width: 415px) {
-	.no-employee {
-    padding: 40px 7px;
-	}	
-}
-
-@media only screen and (min-width: 768px) {
-	.no-employee {
-    padding: 50px 140px;
-	}	
-}
-
-@media only screen and (min-width: 1024px) {
-	.no-employee {
-    font-size: 13px;
-    padding: 50px 250px;
-	}	
+  margin: auto;
+  padding: 40px 0px;
+  text-align: center;
 }
