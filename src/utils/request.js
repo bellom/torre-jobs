@@ -4,18 +4,13 @@ const adapter = axios.create({
   baseURL: "http://localhost:8080"
 });
 
-// const relevantJobsUrl = 'https://search.torre.co/opportunities/_search/?size=10&aggregate=false&offset=0';
-// const jobDetailsUrl = 'https://torre.co/api/opportunities/'
-// const employeesUrl = 'https://search.torre.co/people/_search/?offset=0&size=10&aggregate=false'
-
 export const getUser = async (username) => {
   const response = await adapter.get(`/user/${username}`);
-  console.log(response.data)
   return response.data;
 };
 
 export const getRelevantJobs = async (username) => {
-  const response = await adapter.get('/jobs');
+  const response = await adapter.get(`/jobs/${username}`);
   return response.data;
 }
 

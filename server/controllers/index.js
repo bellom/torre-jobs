@@ -10,20 +10,9 @@ const getUser = async (req, res) => {
   try {
     const { username } = req.params;
     const response = await axios.get(`${userUrl}${username}`);
-    const result = response.data
-    .filter(data => {
-      return data.person
-    })
-    // .filter(data => {
-    //   return {
-    //     picture: data.picture,
-    //     professionalHeadline: data.professionalHeadline,
-    //     name: data.name,
-    //     location: data.location.country
-    //   }
-    // })
-    // run a filter on response.data
-    return res.send(result);
+    const { person: { location: { country }, name, picture, professionalHeadline } } = response.data;
+    const personData = {name, country, picture, professionalHeadline};
+    return res.send(personData);
   } catch (error) {
     res.status(404).send(error)
   }
@@ -34,21 +23,46 @@ const getRelevantJobs = async (req, res) => {
     const { username } = req.params;
     const response = await axios.post(relevantJobsUrl,
       { "bestfor": { "username": username.toLowerCase() } });
-    return res.send(response.data);
+    const jobs = response.data?.results?.map(e => {
+      const organizationName = e.organizations?.[0]?.name
+      return {
+        id: e.id, objective: e.objective, type: e.type, organizationName
+      }
+    });    
+    return res.send(jobs);
   } catch (error) {
-    res.status(404).send(error)
+    res.status(404).send(error);
   }
 }
 
-const getJobDetails = async (jobId) => {
-  const response = await axios.get(`${jobDetailsUrl}${jobId}`);
-  return response.data;
+const getJobDetails = async (req, res) => {
+  try {
+    const { jobId } = req.params;
+    const response = await axios.get(`${jobDetailsUrl}${jobId}`);
+    const { organizations, serpTags } = response.data;
+    const jobDetails = { organizations, serpTags }
+    return res.send(jobDetails);
+  } catch (error) {
+    res.status(404).send(error)
+  }
 };
 
-const getEmployees = async (company) => {
-  const response = await axios.post(employeesUrl,
-    { "and": [{ "organization": { "term": company } }] });
-  return response.data;
+const getEmployees = async (req, res) => {
+  try {
+    const { company } = req.params;
+    const response = await axios.post(employeesUrl,
+      { "and": [{ "organization": { "term": company } }] });
+    const employees = response.data?.results?.map(e => {
+      return {
+        picture: e.picture,
+        name: e.name,
+        professionalHeadline: e.professionalHeadline
+      }
+    })
+    return res.send(employees)
+  } catch (error) { 
+    res.status(404).send(error)
+  }
 }
 
 
