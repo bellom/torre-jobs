@@ -81,7 +81,7 @@ const JobPage = () => {
 
       <div className="employee-cards">
         { (!employees && !employeeError) && <ClipLoader loading = { !employees } css = { override } size = { 100 } /> }
-        { (employees && !employees.length) && <h2 className="no-employee">There is no employee registered with this company</h2> }
+        { (employees && !employees.length) && <span className="no-employee">There is no employee registered with this company</span> }
         { employeeError && <h1>There was an error retrieving team members, member not added to company profile</h1> }
         { employees?.map(e => (
         <div key={ e } className="employee-card">
