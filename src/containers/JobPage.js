@@ -24,8 +24,8 @@ const JobPage = () => {
   const fetchEmployees = useCallback(async (companyName) => {
     try {
       const employees = await getEmployees(companyName);
-      console.log(employees);
-      setEmployees(employees.results);
+      setEmployees(employees);
+      console.log(employees)
     } catch (error) {
       setEmployeeError(true)
     }
@@ -48,7 +48,7 @@ const JobPage = () => {
 
   const image = jobDetails?.organizations?.[0].picture
   const headline = jobDetails?.serpTags?.title
-  const type = jobDetails?.serpTags?.employmentType?.[0]
+  const type = jobDetails?.serpTags?.employmentType?.[0].replace(/_/g, " ")
   const companyName = jobDetails?.organizations?.[0].name
   const currency = jobDetails?.serpTags?.baseSalary?.currency
   const minValue = jobDetails?.serpTags?.baseSalary?.value.minValue
@@ -81,6 +81,7 @@ const JobPage = () => {
 
       <div className="employee-cards">
         { (!employees && !employeeError) && <ClipLoader loading = { !employees } css = { override } size = { 100 } /> }
+        { (employees && !employees.length) && <h2 className="no-employee">There is no employee registered with this company</h2> }
         { employeeError && <h1>There was an error retrieving team members, member not added to company profile</h1> }
         { employees?.map(e => (
         <div key={ e } className="employee-card">

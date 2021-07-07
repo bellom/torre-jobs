@@ -33,7 +33,8 @@ const HomePage = () => {
   const fetchJobs = useCallback(async () => {
     try {
       const jobs = await getRelevantJobs(username);
-      setJobs(jobs.results);
+      setJobs(jobs);
+      console.log(jobs)
     } catch (error) {
       setJobsError(true)
     }
@@ -46,10 +47,10 @@ const HomePage = () => {
   }, [fetchUser, fetchJobs])
 
 
-  const image = user?.person?.picture
-  const headline = user?.person?.professionalHeadline
-  const name = user?.person?.name
-  const country = user?.person?.location?.country
+  const image = user?.picture
+  const headline = user?.professionalHeadline
+  const name = user?.name
+  const country = user?.location?.country
 
   return (
     <div className="container">
@@ -97,7 +98,7 @@ const HomePage = () => {
                   <span>{ e.type }</span>
                 </div>
                 <div>
-                  <span>{ e.organizations[0].name }</span>
+                  <span>{ e.organizationName }</span>
                 </div>
               </Link>
             </div>
