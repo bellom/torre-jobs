@@ -39,9 +39,27 @@ const getJobDetails = async (req, res) => {
   try {
     const { jobId } = req.params;
     const response = await axios.get(`${jobDetailsUrl}${jobId}`);
-    const { organizations, serpTags, deadline } = response.data;
+    const { 
+      organizations, 
+      serpTags: { title, baseSalary: { currency, value: { minValue, maxValue, unitText } }, employmentType }, 
+      deadline 
+    } = response.data;
     const formatDate = new Date(deadline || null).toUTCString();
-    const jobDetails = { organizations, serpTags, deadline: formatDate };
+    const type = employmentType?.[0].replace(/_/g, " ");
+    const picture = organizations?.[0].picture;
+    const name = organizations?.[0].name;
+    const formattedType = unitText.toLowerCase();
+    const jobDetails = { 
+      picture,
+      name,
+      title,
+      currency,
+      minValue,
+      maxValue,
+      formattedType,
+      type,
+      deadline: formatDate
+    };
     return res.send(jobDetails);
   } catch (error) {
     res.status(404).send(error)
