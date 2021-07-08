@@ -46,14 +46,14 @@ const JobPage = () => {
     fetchJob()
   }, [fetchJob])
 
-  const image = jobDetails?.organizations?.[0].picture;
-  const headline = jobDetails?.serpTags?.title;
-  const type = jobDetails?.serpTags?.employmentType?.[0].replace(/_/g, " ");
-  const companyName = jobDetails?.organizations?.[0].name;
-  const currency = jobDetails?.serpTags?.baseSalary?.currency;
-  const minValue = jobDetails?.serpTags?.baseSalary?.value.minValue;
-  const maxValue = jobDetails?.serpTags?.baseSalary?.value.maxValue;
-  const unitText = jobDetails?.serpTags?.baseSalary?.value.unitText.toLowerCase();
+  const image = jobDetails?.picture;
+  const headline = jobDetails?.title;
+  const type = jobDetails?.type;
+  const companyName = jobDetails?.name;
+  const currency = jobDetails?.currency;
+  const minValue = jobDetails?.minValue
+  const maxValue = jobDetails?.maxValue;
+  const formattedType = jobDetails?.formattedType
   const time = jobDetails?.deadline
   return (
     <div className="job-page">
@@ -70,7 +70,7 @@ const JobPage = () => {
             <div><span className="company-name">Organization(s) name(s):</span><br />{ companyName }</div>
             <div>
               <span className="salary">Monetary compensation:</span><br />
-              <span>{ currency } { minValue }-{ maxValue }/{ unitText }</span>
+              <span>{ currency } { minValue }-{ maxValue }/{ formattedType }</span>
             </div>
             <div>
               <span className="salary">Application Deadline:</span><br />
