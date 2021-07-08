@@ -25,7 +25,6 @@ const JobPage = () => {
     try {
       const employees = await getEmployees(companyName);
       setEmployees(employees);
-      console.log(employees)
     } catch (error) {
       setEmployeeError(true)
     }
