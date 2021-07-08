@@ -34,7 +34,7 @@ const JobPage = () => {
   const fetchJob = useCallback(async () => {
     try {
       const job = await getJobDetails(jobId);
-      const companyName = job?.organizations?.[0].name
+      const companyName = job?.name
       setJobDetails(job);
       fetchEmployees(companyName);
     } catch (error) {
