@@ -39,8 +39,9 @@ const getJobDetails = async (req, res) => {
   try {
     const { jobId } = req.params;
     const response = await axios.get(`${jobDetailsUrl}${jobId}`);
-    const { organizations, serpTags } = response.data;
-    const jobDetails = { organizations, serpTags }
+    const { organizations, serpTags, deadline } = response.data;
+    const formatDate = new Date(deadline || null).toUTCString();
+    const jobDetails = { organizations, serpTags, deadline: formatDate };
     return res.send(jobDetails);
   } catch (error) {
     res.status(404).send(error)
